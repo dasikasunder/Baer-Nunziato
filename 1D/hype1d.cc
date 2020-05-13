@@ -1004,7 +1004,7 @@ void HyPE_1D::apply_boundary_conditions() {
 
         // Outflow/Transmissive boundary
 
-        if (Params.left_boundary == transmissive) {
+        if (Params.right_boundary == transmissive) {
 
             ilhs = oned_end + i + 1;
             irhs = oned_end;
@@ -1013,7 +1013,7 @@ void HyPE_1D::apply_boundary_conditions() {
                 U[ilhs][c][0] = U[irhs][c][0];
         }
 
-        if (Params.left_boundary == reflective) {
+        if (Params.right_boundary == reflective) {
 
             ilhs = oned_end + i + 1;
             irhs = oned_end - i;
@@ -1025,7 +1025,7 @@ void HyPE_1D::apply_boundary_conditions() {
             U[ilhs][4][0] = -U[ilhs][4][0];
         }
 
-        if (Params.left_boundary == periodic) {
+        if (Params.right_boundary == periodic) {
 
             ilhs = oned_end + i + 1;
             irhs = oned_begin + i;
